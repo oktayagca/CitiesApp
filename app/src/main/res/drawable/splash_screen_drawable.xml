@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape xmlns:tools="http://schemas.android.com/tools"
+            android:shape="rectangle"
+            tools:ignore="NamespaceTypo">
+            <solid android:color="@color/blue_500"/>
+        </shape>
+    </item>
+    <item
+        android:drawable="@drawable/splash_logo"
+        android:gravity="center"/>
+</layer-list>

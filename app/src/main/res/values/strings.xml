@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">CitiesApp</string>
+    <string name="cities">Şehirler</string>
+    <string name="todo">TODO</string>
+    <string name="login">Giriş yap</string>
+    <string name="userName">Kullanıcı Adı</string>
+    <string name="password">Şifre</string>
+    <string name="register">Kaydol</string>
+    <string name="don_t_have_an_account_sign_up"><![CDATA[Hesabın yok mu? <font color=#ff1b49>Kaydol</font>.]]></string>
+    <string name="have_an_account_sign_in"><![CDATA[Zaten üye misin? <font color=#ff1b49>Giriş yap</font>.]]> </string>
+    <string name="district_name">İlçe adı</string>
+    <string name="description">Açıklama</string>
+    <string name="save">Kaydet</string>
+    <string name="district_add">İlçe ekle</string>
+    <string name="error_no_network">İnternet bağlantısı bulunamadı. Lütfen internet bağlantını kontrol et.</string>
+    <string name="ok">Tamam</string>
+
+</resources>
