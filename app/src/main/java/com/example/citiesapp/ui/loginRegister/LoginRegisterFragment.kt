@@ -39,7 +39,7 @@ class LoginRegisterFragment : BaseFragment<FragmentLoginRegisterBinding>() {
                         viewModel.login(
                             AuthRequest(
                                 userNameTextField.editText!!.text.toString(),
-                                userNameTextField.editText!!.text.toString()
+                                passwordTextField.editText!!.text.toString()
                             )
                         ).observe(viewLifecycleOwner, { response ->
                             when (response.status) {
@@ -63,7 +63,7 @@ class LoginRegisterFragment : BaseFragment<FragmentLoginRegisterBinding>() {
                         viewModel.register(
                             AuthRequest(
                                 userNameTextField.editText!!.text.toString(),
-                                userNameTextField.editText!!.text.toString()
+                                passwordTextField.editText!!.text.toString()
                             )
                         ).observe(viewLifecycleOwner, { response ->
                             when (response.status) {
@@ -113,7 +113,6 @@ class LoginRegisterFragment : BaseFragment<FragmentLoginRegisterBinding>() {
 
     private fun goBack() {
         (activity as MainActivity).showAppBar()
-        viewModel.setUserAuthState(true)
         if (!findNavController().popBackStack()) {
             requireActivity().finish()
         } else {

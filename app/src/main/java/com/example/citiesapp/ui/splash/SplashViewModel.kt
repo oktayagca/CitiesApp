@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import com.example.citiesapp.data.entities.AuthResponse
 import com.example.citiesapp.data.repository.Repository
 import com.example.citiesapp.ui.base.BaseViewModel
+import com.example.citiesapp.utils.IS_GUEST
 import com.example.citiesapp.utils.Resource
 import com.example.citiesapp.utils.TOKEN
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -29,5 +30,6 @@ class SplashViewModel @Inject constructor(
         guestAuthData= repository.guestAuth() as MutableLiveData<Resource<AuthResponse>>
     }
 
-    fun getUserToken() = repository.getString(TOKEN)
+    fun isGuestUser() = repository.getBoolean(IS_GUEST)
+
 }

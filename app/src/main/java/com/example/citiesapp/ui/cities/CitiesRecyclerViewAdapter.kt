@@ -12,19 +12,25 @@ class CitiesRecyclerViewAdapter :
 
     private lateinit var binding: ItemCitiesBinding
     private var items: List<CitiesResponseItem> = mutableListOf()
+    private lateinit var onClickListener:ICitiesListener
 
     class CitiesViewHolder(private val binding: ItemCitiesBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: CitiesResponseItem) {
+        fun bind(item: CitiesResponseItem,onClickListener: ICitiesListener) {
             binding.apply {
                 textView.text = item.name
+                rootView.setOnClickListener{
+                    onClickListener.onClick(item)
+                }
             }
+
         }
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun setData(items:List<CitiesResponseItem>){
+    fun setData(items:List<CitiesResponseItem>,onClickListener: ICitiesListener){
         this.items = items
+        this.onClickListener = onClickListener
         notifyDataSetChanged()
     }
 
@@ -35,7 +41,7 @@ class CitiesRecyclerViewAdapter :
 
     override fun onBindViewHolder(holder: CitiesViewHolder, position: Int) {
         val item = items[position]
-        holder.bind(item)
+        holder.bind(item,onClickListener)
     }
 
     override fun getItemCount() = items.size

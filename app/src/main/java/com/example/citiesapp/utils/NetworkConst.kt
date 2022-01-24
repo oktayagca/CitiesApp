@@ -7,5 +7,6 @@ class NetworkConst {
         const val getCities = "api/City"
         const val register = "user/sign-up"
         const val login = "/user/login"
+        const val districts = "api/City/:cityId/districts"
     }
 }

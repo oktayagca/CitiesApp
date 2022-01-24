@@ -19,7 +19,7 @@ fun View.gone() {
 }
 
 fun Context.showToastMessage(message: String?) {
-    Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+    Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
 }
 
 fun Context.showAlertDialog(title: String, message: String, buttonOkText: String,buttonTextSecond: String?,buttonAction:()->Unit,buttonActionSecond:()->Unit) {

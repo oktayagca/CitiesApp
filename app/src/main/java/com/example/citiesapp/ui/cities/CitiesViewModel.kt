@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import com.example.citiesapp.data.entities.CitiesResponse
 import com.example.citiesapp.data.repository.Repository
 import com.example.citiesapp.ui.base.BaseViewModel
+import com.example.citiesapp.utils.IS_GUEST
 import com.example.citiesapp.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -30,4 +31,10 @@ class CitiesViewModel @Inject constructor(
     private fun getCitiesList() {
         citiesList= repository.getCities() as MutableLiveData<Resource<CitiesResponse>>
     }
+
+    fun isGuestUser() = repository.getBoolean(IS_GUEST)
+
+    fun getDistricts(cityId:String) =
+        repository.getDistricts(cityId)
+
 }

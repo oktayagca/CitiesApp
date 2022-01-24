@@ -24,7 +24,7 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
         ActivitySplashBinding.inflate(layoutInflater)
 
     override fun observeData() {
-        if(viewModel.getUserToken().isNullOrEmpty()) {
+        if(viewModel.isGuestUser()) {
             viewModel.observeGuestAuthData().observe(this, { response ->
                 when (response.status) {
                     Resource.Status.LOADING -> {

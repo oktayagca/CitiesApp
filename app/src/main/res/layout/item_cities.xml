@@ -8,6 +8,7 @@
     android:layout_marginVertical="@dimen/_5sdp"
     android:elevation="@dimen/_20sdp"
     app:cardCornerRadius="@dimen/_10sdp"
+    android:id="@+id/rootView"
     android:layout_height="wrap_content">
 
 <androidx.constraintlayout.widget.ConstraintLayout

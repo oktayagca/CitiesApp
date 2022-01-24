@@ -1,7 +1,6 @@
 package com.example.citiesapp.ui
 
 import android.content.Intent
-import android.util.Log
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.example.citiesapp.R
@@ -35,6 +34,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             signOutButton.setOnClickListener{
                 showAlertDialog("Oturum Sonlandır","Oturumu sonlandırmak istediğinize emin misiniz?","Kapat","Oturumu Sonlandır",{},{
                     viewModel.clearUserToken(TOKEN,"")
+                    viewModel.setIsGuestUser(true)
                     val intent = Intent(this@MainActivity,SplashActivity::class.java)
                     startActivity(intent)
                     finish()
@@ -44,20 +44,22 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     }
 
     override fun observeData() {
-        viewModel.observeIsAuthUser().observe(this,{isAuthUser->
-            Log.v("isAuthUser",isAuthUser.toString())
+        viewModel.observeIsGuestUser().observe(this,{isGuestUser->
             binding.apply {
-                if(isAuthUser){
-                    favToggleButton.gone()
-                    loginButton.gone()
-                    signOutButton.show()
-                }else{
+                if(isGuestUser){
+                    textViewSpinner.text = isGuestUser.toString()
                     favToggleButton.gone()
                     loginButton.show()
                     signOutButton.gone()
-                }
-            }
 
+                }else{
+                    textViewSpinner.text = isGuestUser.toString()
+                    favToggleButton.gone()
+                    loginButton.gone()
+                    signOutButton.show()
+                }
+
+            }
         })
     }
     fun hideAppBar(){
@@ -65,6 +67,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     }
     fun showAppBar(){
         binding.appBarLayout.show()
+        observeData()
     }
 
 }

@@ -56,6 +56,9 @@ class Repository(
     fun getCities() = performNetworkOperation {
         remoteDataSource.getCities()
     }
+    fun getDistricts(cityId:String)= performNetworkOperation{
+        remoteDataSource.getDistricts(cityId)
+    }
 
     fun getString(key: String) =
         localDataSource.getString(key)

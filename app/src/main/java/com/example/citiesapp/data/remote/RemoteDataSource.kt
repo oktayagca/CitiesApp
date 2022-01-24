@@ -23,4 +23,8 @@ class RemoteDataSource(
         apiService.login(authRequest)
     }
 
+    suspend fun getDistricts(cityId:String) = getResult {
+        apiService.getDistricts(cityId)
+    }
+
 }

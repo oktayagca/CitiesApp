@@ -8,6 +8,7 @@ import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Path
 
 interface ApiService {
     @POST(NetworkConst.guestAuth)
@@ -18,4 +19,6 @@ interface ApiService {
     suspend fun register(@Body authRequest: AuthRequest):Response<AuthResponse>
     @POST(NetworkConst.login)
     suspend fun login(@Body authRequest: AuthRequest):Response<AuthResponse>
+    @GET("api/City/{cityId}/districts")
+    suspend fun getDistricts(@Path("cityId")cityId:String):Response<Any>
 }
