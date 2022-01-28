@@ -2,6 +2,7 @@ package com.example.citiesapp.ui
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
+import com.example.citiesapp.data.entities.AddAndRemoveFavouritesRequest
 import com.example.citiesapp.data.entities.AuthRequest
 import com.example.citiesapp.data.entities.AuthResponse
 import com.example.citiesapp.data.repository.Repository
@@ -41,5 +42,13 @@ class MainActivitySharedViewModel @Inject constructor(
     fun setIsGuestUser(value:Boolean){
         repository.saveBoolean(IS_GUEST,value)
     }
+
+    fun addCityFavourites(request:AddAndRemoveFavouritesRequest)=
+        repository.addCityFavourites(request)
+
+
+    fun removeCityFavourites(request:AddAndRemoveFavouritesRequest)=
+        repository.removeCityFavourites(request)
+
 }
 

@@ -25,10 +25,25 @@
         <entry key="..\:/Users/OKTAY/Documents/AndoridKotlin/TestCase/CitiesApp/app/src/main/res/layout/fragment_login_register.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/OKTAY/Documents/AndoridKotlin/TestCase/CitiesApp/app/src/main/res/layout/item_cities.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/OKTAY/Documents/AndoridKotlin/TestCase/CitiesApp/app/src/main/res/menu/deneme.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/TFT-HK/WorkAndroidStudioProjects/CitiesApp/app/src/main/res/drawable/custom_border.xml" value="0.18796296296296297" />
+        <entry key="..\:/Users/TFT-HK/WorkAndroidStudioProjects/CitiesApp/app/src/main/res/drawable/popup_bg.xml" value="0.18796296296296297" />
+        <entry key="..\:/Users/TFT-HK/WorkAndroidStudioProjects/CitiesApp/app/src/main/res/drawable/popup_selector.xml" value="0.18796296296296297" />
+        <entry key="..\:/Users/TFT-HK/WorkAndroidStudioProjects/CitiesApp/app/src/main/res/drawable/selected_state.xml" value="0.2703125" />
+        <entry key="..\:/Users/TFT-HK/WorkAndroidStudioProjects/CitiesApp/app/src/main/res/drawable/unselected_state.xml" value="0.2703125" />
+        <entry key="..\:/Users/TFT-HK/WorkAndroidStudioProjects/CitiesApp/app/src/main/res/layout/activity_main.xml" value="0.20277777777777778" />
+        <entry key="..\:/Users/TFT-HK/WorkAndroidStudioProjects/CitiesApp/app/src/main/res/layout/activity_splash.xml" value="0.1828125" />
+        <entry key="..\:/Users/TFT-HK/WorkAndroidStudioProjects/CitiesApp/app/src/main/res/layout/fragment_add_district.xml" value="0.2" />
+        <entry key="..\:/Users/TFT-HK/WorkAndroidStudioProjects/CitiesApp/app/src/main/res/layout/fragment_cities_list.xml" value="0.171875" />
+        <entry key="..\:/Users/TFT-HK/WorkAndroidStudioProjects/CitiesApp/app/src/main/res/layout/fragment_district_detail.xml" value="0.2" />
+        <entry key="..\:/Users/TFT-HK/WorkAndroidStudioProjects/CitiesApp/app/src/main/res/layout/fragment_districts_list.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/TFT-HK/WorkAndroidStudioProjects/CitiesApp/app/src/main/res/layout/fragment_login_register.xml" value="0.17916666666666667" />
+        <entry key="..\:/Users/TFT-HK/WorkAndroidStudioProjects/CitiesApp/app/src/main/res/layout/item_cities.xml" value="0.171875" />
+        <entry key="..\:/Users/TFT-HK/WorkAndroidStudioProjects/CitiesApp/app/src/main/res/layout/menu_popup.xml" value="0.264" />
+        <entry key="..\:/Users/TFT-HK/WorkAndroidStudioProjects/CitiesApp/app/src/main/res/layout/popup_bg.xml" value="0.23854166666666668" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

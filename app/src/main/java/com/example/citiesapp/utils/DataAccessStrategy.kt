@@ -10,7 +10,7 @@ fun <T> performNetworkOperation(call: suspend () -> Resource<T>): LiveData<Resou
         emit(Resource.loading())
         val networkCall = call.invoke()
         if (networkCall.status == Resource.Status.SUCCESS) {
-            val data = networkCall.data!!
+            val data = networkCall.data
             emit(Resource.success(data))
         } else if (networkCall.status == Resource.Status.ERROR) {
             emit(

@@ -1,12 +1,8 @@
 package com.example.citiesapp.di
 
-import androidx.viewbinding.BuildConfig
 import com.example.citiesapp.data.local.SharedPreferencesManager
 import com.example.citiesapp.data.remote.ApiService
-import com.example.citiesapp.utils.GUEST_TOKEN
-import com.example.citiesapp.utils.IS_GUEST
-import com.example.citiesapp.utils.NetworkConst
-import com.example.citiesapp.utils.TOKEN
+import com.example.citiesapp.utils.*
 import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides
@@ -19,7 +15,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Named
-import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -29,7 +24,6 @@ class NetworkModule {
     @Named("baseUrl")
     fun provideBaseUrl():String = NetworkConst.baseURL
 
-    @Singleton
     @Provides
     fun provideTokenInterceptor(
         sharedPref: SharedPreferencesManager
@@ -50,11 +44,11 @@ class NetworkModule {
     }
 
 
+
     @Provides
-    @Singleton
     fun provideOkHttpClient(
         tokenInterceptor: Interceptor,
-//        sessionInterceptor: SessionInterceptor
+        sharedPref: SharedPreferencesManager
     ): OkHttpClient {
         val builder = OkHttpClient.Builder()
             .addInterceptor(HttpLoggingInterceptor().apply {
@@ -66,7 +60,7 @@ class NetworkModule {
                     HttpLoggingInterceptor.Level.BODY
             })
             .addInterceptor(tokenInterceptor)
-//            .addInterceptor(sessionInterceptor)
+            .addInterceptor(TokenRefreshInterceptor(sharedPref))
 
             .readTimeout(60, TimeUnit.SECONDS)
             .connectTimeout(60, TimeUnit.SECONDS)
@@ -76,7 +70,6 @@ class NetworkModule {
         return builder.build()
     }
 
-    @Singleton
     @Provides
     @Named("retrofit")
     fun provideRetrofit(
@@ -90,11 +83,9 @@ class NetworkModule {
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
 
-    @Singleton
     @Provides
     fun provideGson(): Gson = Gson()
 
-    @Singleton
     @Provides
     fun provideApiService(@Named("retrofit") retrofit: Retrofit): ApiService =
         retrofit.create(

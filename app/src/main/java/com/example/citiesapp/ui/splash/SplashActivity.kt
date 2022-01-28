@@ -3,10 +3,8 @@ package com.example.citiesapp.ui.splash
 import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.activity.viewModels
-import androidx.lifecycle.ViewModelProvider
 import com.example.citiesapp.databinding.ActivitySplashBinding
 import com.example.citiesapp.ui.MainActivity
-import com.example.citiesapp.ui.MainActivitySharedViewModel
 import com.example.citiesapp.ui.base.BaseActivity
 import com.example.citiesapp.utils.Resource
 import com.example.citiesapp.utils.gone

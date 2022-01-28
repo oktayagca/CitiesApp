@@ -17,6 +17,7 @@ class CitiesViewModel @Inject constructor(
 ) :BaseViewModel() {
 
     private var citiesList= MutableLiveData<Resource<CitiesResponse>>()
+    private var favouritesList= MutableLiveData<Resource<CitiesResponse>>()
 
     fun observeCitiesList(): LiveData<Resource<CitiesResponse>> {
         if(citiesList.value == null){
@@ -28,13 +29,24 @@ class CitiesViewModel @Inject constructor(
         return citiesList
     }
 
-    private fun getCitiesList() {
+    fun observeFavouritesList(): LiveData<Resource<CitiesResponse>> {
+        if(favouritesList.value == null){
+            Log.v("cities","if")
+            getFavourites()
+        }else{
+            Log.v("cities","else")
+        }
+        return favouritesList
+    }
+
+    fun getCitiesList() {
         citiesList= repository.getCities() as MutableLiveData<Resource<CitiesResponse>>
     }
 
     fun isGuestUser() = repository.getBoolean(IS_GUEST)
 
-    fun getDistricts(cityId:String) =
-        repository.getDistricts(cityId)
+    fun getFavourites() {
+        favouritesList= repository.getFavourites() as MutableLiveData<Resource<CitiesResponse>>
+    }
 
 }

@@ -11,7 +11,7 @@ class CitiesRecyclerViewAdapter :
     RecyclerView.Adapter<CitiesRecyclerViewAdapter.CitiesViewHolder>() {
 
     private lateinit var binding: ItemCitiesBinding
-    private var items: List<CitiesResponseItem> = mutableListOf()
+    private var items: List<CitiesResponseItem>? = mutableListOf()
     private lateinit var onClickListener:ICitiesListener
 
     class CitiesViewHolder(private val binding: ItemCitiesBinding) :
@@ -19,7 +19,7 @@ class CitiesRecyclerViewAdapter :
         fun bind(item: CitiesResponseItem,onClickListener: ICitiesListener) {
             binding.apply {
                 textView.text = item.name
-                rootView.setOnClickListener{
+                rootViewItem.setOnClickListener{
                     onClickListener.onClick(item)
                 }
             }
@@ -40,9 +40,11 @@ class CitiesRecyclerViewAdapter :
     }
 
     override fun onBindViewHolder(holder: CitiesViewHolder, position: Int) {
-        val item = items[position]
-        holder.bind(item,onClickListener)
+        val item = items?.get(position)
+        if (item != null) {
+            holder.bind(item,onClickListener)
+        }
     }
 
-    override fun getItemCount() = items.size
+    override fun getItemCount(): Int = items!!.size
 }

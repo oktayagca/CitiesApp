@@ -1,14 +1,11 @@
 package com.example.citiesapp.data.remote
 
-import com.example.citiesapp.data.entities.CitiesResponse
-import com.example.citiesapp.data.entities.AuthResponse
-import com.example.citiesapp.data.entities.AuthRequest
+import com.example.citiesapp.data.entities.*
 import com.example.citiesapp.utils.NetworkConst
+import okhttp3.MultipartBody
+import retrofit2.Call
 import retrofit2.Response
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Path
+import retrofit2.http.*
 
 interface ApiService {
     @POST(NetworkConst.guestAuth)
@@ -20,5 +17,19 @@ interface ApiService {
     @POST(NetworkConst.login)
     suspend fun login(@Body authRequest: AuthRequest):Response<AuthResponse>
     @GET("api/City/{cityId}/districts")
-    suspend fun getDistricts(@Path("cityId")cityId:String):Response<Any>
+    suspend fun getDistricts(@Path("cityId")cityId:String):Response<DistrictsResponse>
+    @GET(NetworkConst.favourites)
+    suspend fun getFavourites():Response<CitiesResponse>
+    @POST(NetworkConst.addFavourites)
+    suspend fun addFavourites(@Body request:AddAndRemoveFavouritesRequest):Response<Any>
+    @POST(NetworkConst.deleteFavourites)
+    suspend fun deleteFavourites(@Body request:AddAndRemoveFavouritesRequest):Response<Any>
+    @Multipart
+    @Headers("Content-Type: multipart/form-data")
+    @POST(NetworkConst.uploadDistrictImage)
+    suspend fun uploadDistrictImage(@Part image:MultipartBody.Part):Response<Any>
+    @POST(NetworkConst.createDistrict)
+    suspend fun createDistrict(@Body request:CreateDiscrictRequest):Response<DistrictsResponseItem>
+    @POST(NetworkConst.refreshToken)
+    fun refreshToken(@Body request:RefreshTokenRequest):Call<AuthResponse>
 }

@@ -14,10 +14,47 @@
             android:id="@+id/action_citiesFragment_to_loginRegisterFragment"
             app:destination="@id/loginRegisterFragment"
             app:enterAnim="@anim/bottom_in_anim" />
+        <action
+            android:id="@+id/action_citiesFragment_to_districtsListFragment"
+            app:destination="@id/districtsListFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginRegisterFragment"
         android:name="com.example.citiesapp.ui.loginRegister.LoginRegisterFragment"
         android:label="fragment_login_register"
         tools:layout="@layout/fragment_login_register" />
+    <fragment
+        android:id="@+id/districtsListFragment"
+        android:name="com.example.citiesapp.ui.districts.DistrictsListFragment"
+        android:label="fragment_districts_list"
+        tools:layout="@layout/fragment_districts_list" >
+        <argument
+            android:name="city"
+            app:argType="com.example.citiesapp.data.entities.CitiesResponseItem" />
+        <action
+            android:id="@+id/action_districtsListFragment_to_districtsDetailFragment"
+            app:destination="@id/districtsDetailFragment" />
+        <action
+            android:id="@+id/action_districtsListFragment_to_addDistrictFragment"
+            app:destination="@id/addDistrictFragment"
+            app:enterAnim="@anim/bottom_in_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/districtsDetailFragment"
+        android:name="com.example.citiesapp.ui.districts.DistrictsDetailFragment"
+        android:label="fragment_district_detail"
+        tools:layout="@layout/fragment_district_detail" >
+        <argument
+            android:name="district"
+            app:argType="com.example.citiesapp.data.entities.DistrictsResponseItem" />
+    </fragment>
+    <fragment
+        android:id="@+id/addDistrictFragment"
+        android:name="com.example.citiesapp.ui.districts.AddDistrictFragment"
+        android:label="fragment_add_district"
+        tools:layout="@layout/fragment_add_district" >
+        <argument
+            android:name="cityId"
+            app:argType="integer" />
+    </fragment>
 </navigation>

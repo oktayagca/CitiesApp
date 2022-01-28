@@ -14,5 +14,8 @@
     <string name="district_add">İlçe ekle</string>
     <string name="error_no_network">İnternet bağlantısı bulunamadı. Lütfen internet bağlantını kontrol et.</string>
     <string name="ok">Tamam</string>
+    <string name="favourites">Favoriler</string>
+    <string name="choose">Seç</string>
+    <string name="add">Ekle</string>
 
 </resources>

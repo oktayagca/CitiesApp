@@ -1,9 +1,12 @@
 package com.example.citiesapp.data.repository
 
+import com.example.citiesapp.data.entities.AddAndRemoveFavouritesRequest
 import com.example.citiesapp.data.entities.AuthRequest
+import com.example.citiesapp.data.entities.CreateDiscrictRequest
 import com.example.citiesapp.data.local.LocalDataSource
 import com.example.citiesapp.data.remote.RemoteDataSource
 import com.example.citiesapp.utils.*
+import okhttp3.MultipartBody
 
 class Repository(
     private val remoteDataSource: RemoteDataSource,
@@ -59,6 +62,24 @@ class Repository(
     fun getDistricts(cityId:String)= performNetworkOperation{
         remoteDataSource.getDistricts(cityId)
     }
+    fun getFavourites() = performNetworkOperation {
+        remoteDataSource.getFavourites()
+    }
+
+    fun addCityFavourites(request: AddAndRemoveFavouritesRequest) = performNetworkOperation {
+        remoteDataSource.addFavourites(request)
+    }
+
+    fun removeCityFavourites(request:AddAndRemoveFavouritesRequest)= performNetworkOperation {
+        remoteDataSource.deleteFavourites(request)
+    }
+
+    fun uploadDistrictImage(image:MultipartBody.Part) = performNetworkOperation {
+        remoteDataSource.uploadDistrictImage(image)
+    }
+    fun createDistricts(request: CreateDiscrictRequest) = performNetworkOperation {
+        remoteDataSource.createDistricts(request)
+    }
 
     fun getString(key: String) =
         localDataSource.getString(key)
@@ -81,6 +102,8 @@ class Repository(
     fun clearAllSharedPrefData(){
         localDataSource.clearAllData()
     }
+
+
 
 
 }
